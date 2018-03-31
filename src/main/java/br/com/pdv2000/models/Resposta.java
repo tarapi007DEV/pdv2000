@@ -10,12 +10,29 @@ package br.com.pdv2000.models;
  * @author Diego
  */
 public class Resposta {
+
     private int status;
-    private String data;
     private String message;
+    private Object[] objetos;
+
+    public Resposta() {
+    }
+
+    public Resposta(int id) {
+
+    }
     
-    public Resposta(){
-        System.out.println("Instanciou a resposta");
+    public Resposta(int id, String message) {
+
+    }
+
+
+    public Object[] getObjetos() {
+        return objetos;
+    }
+
+    public void setObjetos(Object[] objetos) {
+        this.objetos = objetos;
     }
 
     public int getStatus() {
@@ -24,14 +41,6 @@ public class Resposta {
 
     public void setStatus(int status) {
         this.status = status;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     public String getMessage() {

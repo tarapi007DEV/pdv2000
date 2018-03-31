@@ -7,13 +7,14 @@ package br.com.pdv2000.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
  * @author Diego
  */
-@Controller
-@RequestMapping(value = { "/" })
+//@Controller
+//@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 public class Home {
     public String homePage() {
         return "login";
