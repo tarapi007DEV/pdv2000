@@ -25,10 +25,11 @@ import org.springframework.stereotype.Component;
 public class ProdutosDao {
 
     public Produto get(int id) throws SQLException, ClassNotFoundException {
+        Produto produto = null;
+        Connection conn = null; 
+        String sql = "select * from produtos where id = :ID";
         try {
-            Produto produto = null;
-            Connection conn = ConnMngr.getConnection();
-            String sql = "select * from produtos where id = :ID";
+            conn = ConnMngr.getConnection();
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setInt(1, id);
             ResultSet rSet = pStmt.executeQuery();
@@ -42,6 +43,8 @@ public class ProdutosDao {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ProdutosDao.class.getName()).log(Level.SEVERE, "Erro no get ProdutosDao", ex);
             throw ex;
+        } finally{
+            try {conn.close();} catch (Exception e) {};
         }
     }
 
@@ -49,8 +52,9 @@ public class ProdutosDao {
         List<Produto> produtosList = new ArrayList<>();
         Produto produto = null;
         Produto[] produtos = null;
+        Connection conn = null;
         try {
-            Connection conn = ConnMngr.getConnection();
+            conn = ConnMngr.getConnection();
             String sql = "select * from produtos order by id";
             PreparedStatement pStmt = conn.prepareStatement(sql);
             ResultSet rSet = pStmt.executeQuery();
@@ -65,6 +69,8 @@ public class ProdutosDao {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ProdutosDao.class.getName()).log(Level.SEVERE, "Erro no getAll ProdutosDao", ex);
             throw ex;
+        } finally{
+            try {conn.close();} catch (Exception e) {};
         }
     }
 

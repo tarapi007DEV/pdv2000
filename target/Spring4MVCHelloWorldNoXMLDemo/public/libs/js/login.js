@@ -3,67 +3,97 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var ReqManager = {};
 
+(function (ReqManager) {
+
+    function sendPost(url, data, callbackFn, errorFn) {
+        var options = {
+            url: url,
+            method: "post",
+            data: data
+        };
+
+        if (callbackFn) {
+            options.success = function (data, textStatus, jqXHR) {
+                if (data.status == 1) {
+                    console.log("Sucesso na request para :" + url);
+                    callbackFn();
+                } else {
+                    alert("Erro: " + data.message);
+                    if (errorFn) {
+                        errorFn();
+                    }
+                }
+            };
+        }
+        options.error = function (jqXHR, textStatus, errorThrown) {
+            if (errorFn) {
+                errorFn();
+            } else {
+                alert("Erro: " + jqXHR.status + " Detalhes no console do navegador.");
+                console.log(jqXHR);
+                console.log(errorThrown);
+            }
+        };
+        $.ajax(options);
+    }
+
+    function getInputsFrom(jElem) {
+        var dados = {};
+        var inputsArr = jElem.find("[name]");
+        $.each(inputsArr, function (index, elem) {
+            dados[elem.name] = elem.value;
+        });
+        return dados;
+    }
+
+    // EXPORTS
+    ReqManager.sendPost = sendPost;
+    ReqManager.getInputsFrom = getInputsFrom;
+})(ReqManager);
+
+var LoginMngr = {};
+
+(function (LoginMngr) {
+
+    function tryToLogin() {
+        var username = $("[name=username]").val();
+        var senha = $("[name=senha]").val();
+        
+        // VALIDANDO USUÁRIO E SENHA EM BRANCOS
+        if (!username || username.trim() == ""
+                || !senha || senha.trim() == "") {
+            alert("Usuário e senha são obrigatórios.");
+            return false;
+        }
+        var dados = ReqManager.getInputsFrom($(".sidebar-input-group"));
+        
+        ReqManager.sendPost(
+                "login",
+                dados,
+                function () {
+                    location.href = "produtos/getAll";
+//                    location.href = "index.jsp";
+                }
+        );
+    }
+
+    // EXPORTS
+    LoginMngr.tryToLogin = tryToLogin;
+})(LoginMngr);
 
 window.onload = function () {
 
     document.querySelector(".sidebar-input input").focus();
-
     document.onkeypress = function (e) {
         if (e.which == '13') {
-            $(".sidebar-btn-entrar").click();
+            LoginMngr.tryToLogin();
         }
     };
 
     $(".sidebar-btn-entrar").click(function () {
         console.log("Clicado no btn entrar");
-        ReqManager.tryToLogin();
+        LoginMngr.tryToLogin();
     });
-
-    var ReqManager = {};
-
-    (function (ReqManager) {
-        function sendPost(url, data, callbackFn, errorFn) {
-            var options = {
-                url: url,
-                method: "post",
-                data: data
-            };
-
-            if (callbackFn) {
-                options.success = function (data, textStatus, jqXHR) {
-                    if (data.status == 1) {
-                        console.log("Sucesso na request para :" + url);
-                        callbackFn();
-                    } else {
-                        alert("Erro:" + status.message);
-                        errorFn();
-                    }
-                }
-            }
-            if (errorFn) {
-                options.error = function (jqXHR, textStatus, errorThrown) {
-                    errorFn();
-                }
-            }
-            $.ajax(options);
-        }
-        ;
-        ReqManager.sendPost = sendPost;
-    })(ReqManager);
-
-
-
-    function tryToLogin() {
-        ReqManager.sendPost(
-                "rest/login",
-                {username: "teste", senha: "123"},
-                function () {
-                    location.href = "index.jsp";
-                }
-        );
-    }
-
-    ReqManager.tryToLogin = tryToLogin;
-
 };

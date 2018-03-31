@@ -33,7 +33,7 @@
                     <div class="sidebar-input-group">
                         <div class="sidebar-input vert-ctnr">
                             <span class="glyphicon glyphicon-user vert-item"></span>
-                            <input name="usuario">
+                            <input name="username">
                         </div>
                         <div class="sidebar-input vert-ctnr">
                             <span class="glyphicon glyphicon-lock vert-item"></span>

@@ -25,18 +25,17 @@ import org.springframework.stereotype.Component;
 public class UsuariosDao {
 
     public Usuario get(String userName, String senha) throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        Usuario usuario = null;
         try {
-            Usuario usuario = null;
-            Connection conn = ConnMngr.getConnection();
-            String sql = "select * from usuarios where username = ? and senha = ?";
+            conn = ConnMngr.getConnection();
+            String sql = "select * from usuarios where UPPER(username) = ? and senha = ?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
-            pStmt.setString(1, userName);
+            pStmt.setString(1, userName.toUpperCase());
             pStmt.setString(2, senha);
             ResultSet rSet = pStmt.executeQuery();
             while (rSet.next()) {
-                if (usuario == null) {
                     usuario = new Usuario();
-                }
                 usuario.setId(rSet.getInt("id"));
                 usuario.setNome(rSet.getString("nome"));
                 usuario.setUserName(userName);
@@ -47,6 +46,11 @@ public class UsuariosDao {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(UsuariosDao.class.getName()).log(Level.SEVERE, "Erro no get UsuariosDao", ex);
             throw ex;
+        } finally {
+            try {
+                conn.close();
+            } catch (Exception e) {
+            };
         }
     }
 
@@ -54,8 +58,9 @@ public class UsuariosDao {
         List<Usuario> usuariosList = new ArrayList<>();
         Usuario usuario = null;
         Usuario[] usuarios = null;
+        Connection conn = null;
         try {
-            Connection conn = ConnMngr.getConnection();
+            conn = ConnMngr.getConnection();
             String sql = "select * from usuarios order by id";
             PreparedStatement pStmt = conn.prepareStatement(sql);
             ResultSet rSet = pStmt.executeQuery();
@@ -70,6 +75,11 @@ public class UsuariosDao {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(UsuariosDao.class.getName()).log(Level.SEVERE, "Erro no getAll UsuariosDao", ex);
             throw ex;
+        } finally {
+            try {
+                conn.close();
+            } catch (Exception e) {
+            };
         }
     }
 

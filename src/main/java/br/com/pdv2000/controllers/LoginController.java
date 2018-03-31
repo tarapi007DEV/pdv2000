@@ -32,7 +32,7 @@ public class LoginController {
     private UsuariosDao uDao;
 
     // EXEMPLO DE REQUEST MAPPING USANDO REQUEST PARAM
-    @RequestMapping(value = "/rest/login",
+    @RequestMapping(value = "/login",
             method = {RequestMethod.GET, RequestMethod.POST},
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
