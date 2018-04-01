@@ -1,0 +1,111 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 31, 2018, 10:01:34 PM
+    Author     : Diego
+*/
+
+/*
+    SIDEBAR
+*/
+
+.btn-modulo{
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 26px;
+    /*height: 75px;*/
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.btn-modulo:hover{
+    color: rgba(255,255,255,1);
+}
+
+.btn-modulo span{
+    display: block;
+    font-size: 16px;
+}
+.btn-modulo span:first-child{
+    font-size: 58px;
+    margin-bottom: 7px;
+}
+.sidebar{
+    background: black;
+}
+
+.sidebar hr{
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    border-top: 1px solid rgba(238, 238, 238, 0.25);
+}
+
+.sidebar-ctnr{
+    padding-top: 0px;
+    background: #40a286;
+    width: 160px
+}
+
+.logo-ctnr{
+    background: #40a286;
+    width: 100%;
+}
+
+.corpo{
+    width: calc(100% - 180px);
+    padding-top: 0px;
+}
+
+.corpo h1{
+    font-weight: 600;
+}
+
+.caixa-ctnr{
+    float: left;
+    background: white;
+    height: 100%;
+    text-align: center;
+    width: 670px;
+    font-family: Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    color: #686868;
+}
+
+.img-caixa {
+    padding: 40px 0;
+}
+
+.img-caixa img{
+    height: 100%;
+}
+
+.fundo-caixa input{
+    width: 280px;
+    height: 51px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 51px;
+    background-color: #478291;
+    border-bottom: 5px solid #196376;
+    margin: 0 auto;
+}
+
+.btn-confirm-abert button{
+    width: 90%;
+    color: white;
+    background-color: #87c336;
+    border: none;
+    height: 53px;
+    font-size: 28px;
+}
+.btn-confirm-abert button span {
+        margin-right: 21px;
+    font-size: 27px;
+}

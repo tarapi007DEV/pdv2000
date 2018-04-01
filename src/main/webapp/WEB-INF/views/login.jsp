@@ -16,7 +16,7 @@
     <body>
         <div class="ctnr">
             <div class="topbar vert-ctnr">
-                <div class="vert-item">
+                <div>
                     <div class="logo-ctnr">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
                         <span class="logo-texto">PDV</span>
@@ -32,11 +32,11 @@
 
                     <div class="sidebar-input-group">
                         <div class="sidebar-input vert-ctnr">
-                            <span class="glyphicon glyphicon-user vert-item"></span>
+                            <span class="glyphicon glyphicon-user"></span>
                             <input name="usuario">
                         </div>
                         <div class="sidebar-input vert-ctnr">
-                            <span class="glyphicon glyphicon-lock vert-item"></span>
+                            <span class="glyphicon glyphicon-lock"></span>
                             <input name="senha">
                         </div>
                         <div class="sidebar-esqueci">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="sidebar-btn-entrar vert-ctnr">
-                        <span class="vert-item">Entrar</span>
+                        <span>Entrar</span>
                     </div>
                 </div>
             </div>

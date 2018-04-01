@@ -10,13 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <link href="public/libs/bootstrap-3.3.7/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="public/libs/css/login.css" rel="stylesheet" type="text/css"/>
-        <title>Login ds2</title>
+        <link href="public/libs/css/global.css" rel="stylesheet" type="text/css"/>
+        <link href="public/libs/css/index.css" rel="stylesheet" type="text/css"/>
+        <title>Login Pdv2000</title>
     </head>
     <body>
         <div class="ctnr">
             <div class="topbar vert-ctnr">
-                <div class="vert-item">
+                <div>
                     <div class="logo-ctnr">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
                         <span class="logo-texto">PDV</span>
@@ -32,11 +33,11 @@
 
                     <div class="sidebar-input-group">
                         <div class="sidebar-input vert-ctnr">
-                            <span class="glyphicon glyphicon-user vert-item"></span>
+                            <span class="glyphicon glyphicon-user"></span>
                             <input name="username">
                         </div>
                         <div class="sidebar-input vert-ctnr">
-                            <span class="glyphicon glyphicon-lock vert-item"></span>
+                            <span class="glyphicon glyphicon-lock"></span>
                             <input name="senha">
                         </div>
                         <div class="sidebar-esqueci">
@@ -45,7 +46,7 @@
                     </div>
 
                     <div class="sidebar-btn-entrar vert-ctnr">
-                        <span class="vert-item">Entrar</span>
+                        <span>Entrar</span>
                     </div>
                 </div>
             </div>
