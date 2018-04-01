@@ -56,6 +56,9 @@ and open the template in the editor.
     width: 100%;
 }
 
+/*
+    CORPO
+*/
 .corpo{
     width: calc(100% - 180px);
     padding-top: 0px;
@@ -65,6 +68,9 @@ and open the template in the editor.
     font-weight: 600;
 }
 
+/*
+    CAIXA
+*/
 .caixa-ctnr{
     float: left;
     background: white;
@@ -75,8 +81,14 @@ and open the template in the editor.
     color: #686868;
 }
 
+/*
+    ABERRTURA-CAIXA
+*/
+
 .img-caixa {
     padding: 40px 0;
+    padding: 12px 0px 40px 0px;
+    height: 360px
 }
 
 .img-caixa img{
@@ -97,6 +109,10 @@ and open the template in the editor.
     margin: 0 auto;
 }
 
+.btn-confirm-abert {
+    margin-top: 25px;
+}
+
 .btn-confirm-abert button{
     width: 90%;
     color: white;
@@ -106,6 +122,6 @@ and open the template in the editor.
     font-size: 28px;
 }
 .btn-confirm-abert button span {
-        margin-right: 21px;
+    margin-right: 21px;
     font-size: 27px;
 }
